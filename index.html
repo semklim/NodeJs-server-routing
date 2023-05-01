@@ -11,5 +11,16 @@
 <body>
 	Index
 	<!-- <img src="./icons8-internet-windows-11-color-96.png" alt=""> -->
+	<p id="Book"></p>
+	<a href="/book">Book</a>
+	<a href="/code">Callback page</a>
+	<script>
+		const book = document.getElementById('Book');
+		const random = Math.round(Math.random() * 2);
+		fetch('http://localhost:3000/book')
+		.then(data => data.json())
+		.then(book => book[random])
+		.then(obj => book.textContent = `Author: ${obj.name}. ID: ${obj.id}`);
+	</script>
 </body>
 </html>
